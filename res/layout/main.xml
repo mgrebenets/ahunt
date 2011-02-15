@@ -292,6 +292,7 @@
 		
 		<!-- ads -->
 
+		<!-- 
 		<com.qwapi.adclient.android.view.QWAdView android:id="@+id/QWAd"
 			android:layout_width="280dp" android:layout_height="wrap_content"
 			android:layout_x="100dp" android:layout_y="270dp"
@@ -301,6 +302,7 @@
 			qwad:animation="slide"
 			qwad:adEventListenerClass="com.i4napps.ahunt.XLActivity" 
 			/>
+		-->
 
 		<!-- qwad:testMode="true"  -->
 		<!--           qwad:displayMode="autoRotate" -->
@@ -317,6 +319,16 @@
 			android:layout_x="280dp" android:layout_y="260dp"
 			android:src="@drawable/btn_game2" android:background="#0000">
 		</ImageButton>
+		
+		<!-- splash screen -->
+		<ImageView android:id="@+id/splashBg"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_x="0dp" android:layout_y="0dp" android:src="@drawable/splash_bg">
+		</ImageView>
+		<ImageView android:id="@+id/rateIcon"
+			android:layout_width="wrap_content" android:layout_height="wrap_content"
+			android:layout_x="188dp" android:layout_y="100dp" android:src="@drawable/for_all">
+		</ImageView>
 
 	</AbsoluteLayout>
 

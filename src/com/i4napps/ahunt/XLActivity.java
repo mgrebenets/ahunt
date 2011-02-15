@@ -5,10 +5,13 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/*
 import com.qwapi.adclient.android.data.Ad;
 import com.qwapi.adclient.android.data.Status;
 import com.qwapi.adclient.android.requestparams.AdRequestParams;
 import com.qwapi.adclient.android.view.AdEventsListener;
+*/
+//import android.content.Context;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -23,11 +26,11 @@ import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager.NameNotFoundException;
 
-public class XLActivity extends Activity implements AdEventsListener {
+//public class XLActivity extends Activity implements AdEventsListener {
+public class XLActivity extends Activity {	
 
 	static final int DIALOG_INFO_ID = 0;
 	static final int DIALOG_STATS_ID = 1;
@@ -789,10 +792,12 @@ public class XLActivity extends Activity implements AdEventsListener {
 			if (mGameThread.state != STATE_READY) return;
 			
 			// check if game mode 2 is unlocked
+			/*
 			if (mAddDisplayed && mode == GAME_MODE_II && !mUnlocked) {
 				showDialog(DIALOG_UNLOCK_ID);
 				return;
 			}
+			*/
 			
 			mGameThread.startGame(mode);
 			updatePoints();
@@ -821,10 +826,12 @@ public class XLActivity extends Activity implements AdEventsListener {
 		public boolean onTouch(View v, MotionEvent event) {
 
 			if (event.getAction() == MotionEvent.ACTION_DOWN) {
+				/*
 				if (mAddDisplayed && !mUnlocked) {
 					showDialog(DIALOG_UNLOCK_ID);
 					return false;
 				}
+				*/
 				
 				if (mGameThread.state == STATE_RUNNING) {
 					mGameThread.suspendGame();
@@ -836,6 +843,27 @@ public class XLActivity extends Activity implements AdEventsListener {
 			}
 
 			return false;
+		}	
+	};
+	
+	private final Runnable mHideSplashScreen = new Runnable() {
+		public void run() {
+			((ImageView)findViewById(R.id.splashBg)).setVisibility(View.INVISIBLE);
+			((ImageView)findViewById(R.id.rateIcon)).setVisibility(View.INVISIBLE);
+		}
+	};
+	
+	private class SplashThread extends Thread {
+		@Override
+		public void run() {
+			// sleep for 3 sec
+			try {
+				sleep(3500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			mHandler.post(mHideSplashScreen);
 		}	
 	};
 	
@@ -893,7 +921,8 @@ public class XLActivity extends Activity implements AdEventsListener {
 	    mScoreGameII = settings.getInt("scoreGameII", 0);
 	    
 		// restore features unlocked status from preferences
-		mUnlocked = settings.getBoolean("featuresUnlocked", false);
+		//mUnlocked = settings.getBoolean("featuresUnlocked", false);
+	    mUnlocked = true;
 
 		initSounds();
 
@@ -914,6 +943,9 @@ public class XLActivity extends Activity implements AdEventsListener {
 		updateTrajectories();
 		updatePoints();
 		updatePenalties();	
+		
+		// show splash screen for 3 seconds
+		(new SplashThread()).start();
 		
 	}
 	
@@ -976,7 +1008,7 @@ public class XLActivity extends Activity implements AdEventsListener {
 					+ "\n" + getString(R.string.game_II) + ":\t" + mScoreGameII)
 					.setCancelable(false)
 					.setPositiveButton(getString(R.string.OK), null);
-			break;
+			break;	
 		case DIALOG_UNLOCK_ID:
 			builder.setTitle(getString(R.string.unlock_title))
 			.setMessage(getString(R.string.unlock_msg))
@@ -999,6 +1031,7 @@ public class XLActivity extends Activity implements AdEventsListener {
 		}
 	}
 
+	/*
 	@Override
 	public void onAdClick(Context arg0, Ad arg1) {
 		// ad click listener
@@ -1024,4 +1057,5 @@ public class XLActivity extends Activity implements AdEventsListener {
 		Log.d("ad", "Ad Displayed");
 		((XLActivity)arg0).mAddDisplayed = true;
 	}
+	/* */
 }
