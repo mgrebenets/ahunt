@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:id="@+id/widget_rel1"
 	android:layout_width="fill_parent" android:layout_height="fill_parent"
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:qwad="http://schemas.android.com/apk/res/com.i4napps.ahunt">
+	xmlns:android="http://schemas.android.com/apk/res/android" xmlns:qwad="http://schemas.android.com/apk/res/com.i4napps.ahunt"
+	android:background="#dcddcd">
+
+	<!-- background -->
+	<ImageView android:id="@+id/background" android:layout_x="0dp"
+		android:layout_y="0dp" android:src="@drawable/background"
+		android:scaleType="fitXY" android:layout_height="fill_parent"
+		android:layout_width="fill_parent">
+	</ImageView>
+
+
 
 	<AbsoluteLayout android:id="@+id/widget1"
-		android:layout_width="wrap_content" android:layout_height="wrap_content"
-		android:layout_centerVertical="true" android:layout_centerHorizontal="true">
+		android:layout_centerVertical="true" android:layout_centerHorizontal="true"
+		android:layout_width="wrap_content" android:layout_height="wrap_content">
+		<!-- android:layout_width="wrap_content" android:layout_height="wrap_content" -->
 
-		<!-- background -->
-		<ImageView android:id="@+id/background"
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:layout_x="0dp" android:layout_y="0dp" android:src="@drawable/background">
-		</ImageView>
+
 
 		<!-- buttons -->
 		<ImageButton android:id="@+id/infoButton"
@@ -58,10 +64,8 @@
 
 		<!-- catcher helper -->
 		<ImageView android:id="@+id/helper" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" 
-			android:layout_x="115dp"
-			android:layout_y="32dp" 
-			android:src="@drawable/helper">
+			android:layout_height="wrap_content" android:layout_x="115dp"
+			android:layout_y="32dp" android:src="@drawable/helper">
 		</ImageView>
 
 		<!-- sound, game 1 and 2, stats, pause? -->
@@ -85,8 +89,8 @@
 
 		<ImageButton android:id="@+id/btnStats"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:layout_x="425dp" android:layout_y="0dp"
-			android:src="@drawable/btn_stats" android:background="#0000">
+			android:layout_x="425dp" android:layout_y="0dp" android:src="@drawable/btn_stats"
+			android:background="#0000">
 		</ImageButton>
 
 		<!-- Projectiles -->
@@ -264,72 +268,70 @@
 			android:layout_height="wrap_content" android:layout_x="422dp"
 			android:layout_y="261dp" android:src="@drawable/rcrash4">
 		</ImageView>
-		
-				<!-- direction buttons -->
+
+		<!-- direction buttons -->
 		<ImageButton android:id="@+id/btnLTop"
 			android:layout_width="115dp" android:layout_height="76dp"
-			android:layout_x="0dip" android:layout_y="168dip"
-			android:src="@drawable/btn_ltop" android:background="#0000">
+			android:layout_x="0dip" android:layout_y="168dip" android:src="@drawable/btn_ltop"
+			android:background="#0000">
 		</ImageButton>
 
 		<ImageButton android:id="@+id/btnLBottom"
 			android:layout_width="116dp" android:layout_height="76dp"
-			android:layout_x="0dip" android:layout_y="244dip"
-			android:src="@drawable/btn_lbottom" android:background="#0000">
+			android:layout_x="0dip" android:layout_y="244dip" android:src="@drawable/btn_lbottom"
+			android:background="#0000">
 		</ImageButton>
 
 		<ImageButton android:id="@+id/btnRTop"
 			android:layout_width="115dp" android:layout_height="76dp"
-			android:layout_x="368dip" android:layout_y="168dip"
-			android:src="@drawable/btn_rtop" android:background="#0000">
+			android:layout_x="368dip" android:layout_y="168dip" android:src="@drawable/btn_rtop"
+			android:background="#0000">
 		</ImageButton>
 
 		<ImageButton android:id="@+id/btnRBottom"
 			android:layout_width="116dp" android:layout_height="76dp"
-			android:layout_x="365dip" android:layout_y="244dip"
-			android:src="@drawable/btn_rbottom" android:background="#0000">
+			android:layout_x="365dip" android:layout_y="244dip" android:src="@drawable/btn_rbottom"
+			android:background="#0000">
 		</ImageButton>
-		
+
 		<!-- ads -->
 
-		<!-- 
-		<com.qwapi.adclient.android.view.QWAdView android:id="@+id/QWAd"
-			android:layout_width="280dp" android:layout_height="wrap_content"
-			android:layout_x="100dp" android:layout_y="270dp"
-			qwad:siteId="anEggs-g6jdmcgw"
-			qwad:publisherId="fb936e4c62ed40fd8514f9737fa5a980"
-			qwad:mediaType="banner" qwad:placement="top" qwad:adInterval="30"
-			qwad:animation="slide"
-			qwad:adEventListenerClass="com.i4napps.ahunt.XLActivity" 
-			/>
-		-->
+		<!-- <com.qwapi.adclient.android.view.QWAdView android:id="@+id/QWAd" android:layout_width="280dp" 
+			android:layout_height="wrap_content" android:layout_x="100dp" android:layout_y="270dp" 
+			qwad:siteId="anEggs-g6jdmcgw" qwad:publisherId="fb936e4c62ed40fd8514f9737fa5a980" 
+			qwad:mediaType="banner" qwad:placement="top" qwad:adInterval="30" qwad:animation="slide" 
+			qwad:adEventListenerClass="com.i4napps.ahunt.XLActivity" /> -->
 
-		<!-- qwad:testMode="true"  -->
-		<!--           qwad:displayMode="autoRotate" -->
+		<!-- qwad:testMode="true" -->
+		<!-- qwad:displayMode="autoRotate" -->
 		<!-- qwad:renderAdOnCreate="true" -->
-		
-		
+
+
 		<ImageButton android:id="@+id/btnGameI"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:layout_x="137dp" android:layout_y="260dp"
-			android:src="@drawable/btn_game1" android:background="#0000">
+			android:layout_x="137dp" android:layout_y="260dp" android:src="@drawable/btn_game1"
+			android:background="#0000">
 		</ImageButton>
 		<ImageButton android:id="@+id/btnGameII"
 			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:layout_x="280dp" android:layout_y="260dp"
-			android:src="@drawable/btn_game2" android:background="#0000">
+			android:layout_x="280dp" android:layout_y="260dp" android:src="@drawable/btn_game2"
+			android:background="#0000">
 		</ImageButton>
-		
-		<!-- splash screen -->
-		<ImageView android:id="@+id/splashBg"
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:layout_x="0dp" android:layout_y="0dp" android:src="@drawable/splash_bg">
-		</ImageView>
-		<ImageView android:id="@+id/rateIcon"
-			android:layout_width="wrap_content" android:layout_height="wrap_content"
-			android:layout_x="188dp" android:layout_y="100dp" android:src="@drawable/for_all">
-		</ImageView>
+
+
+
 
 	</AbsoluteLayout>
+	
+		<!-- splash screen -->
+	<ImageView android:id="@+id/splashBg" android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:layout_x="0dp"
+		android:scaleType="fitXY"
+		android:layout_y="0dp" android:src="@drawable/splash_bg">
+	</ImageView>
+	
+			<ImageView android:id="@+id/rateIcon" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:src="@drawable/for_all" android:layout_centerInParent="true">
+		</ImageView>
 
 </RelativeLayout>
