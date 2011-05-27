@@ -14,3 +14,7 @@ profile
 # windows noise
 Thumbs.db
 thumbs.db
+
+# android java noise
+bin/*
+gen/*
